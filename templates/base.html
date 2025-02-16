@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>设备管理系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            {% if user.is_authenticated %}
+                欢迎 {{ user.username }} | <a href="{% url 'logout' %}">退出</a>
+            {% else %}
+                <a href="{% url 'login' %}">登录</a> | <a href="{% url 'register' %}">注册</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

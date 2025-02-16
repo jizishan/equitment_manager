@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>设备列表</h1>
+<table>
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>型号</th>
+            <th>状态</th>
+            <th>负责人</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for equipment in equipments %}
+        <tr>
+            <td>{{ equipment.name }}</td>
+            <td>{{ equipment.model }}</td>
+            <td>{{ equipment.get_status_display }}</td>
+            <td>{{ equipment.owner|default:"-" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
